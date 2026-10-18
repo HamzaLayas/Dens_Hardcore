@@ -10,7 +10,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 
 1. Close Valheim and stop the server.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
-3. Extract `Dens_Hardcore-1.0.0.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder.
+3. Extract `Dens_Hardcore-1.1.0.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder.
 4. Replace any older Cartography Map installation. Keep only one copy of each mod DLL.
 5. Start the world again after changing its options or updating the mod.
 
@@ -29,7 +29,7 @@ The host chooses two independent options in **World modifiers**. Both require ex
 
 | Option | What it does |
 | --- | --- |
-| **Hardcore grave protection** | On a Hardcore world, carried items go into a recoverable grave. Hardcore skill penalties remain. Corpse Run and No skill drain are disabled, including protection against skill loss from repeated deaths. |
+| **Hardcore grave protection** | On a Hardcore world, carried items go into a recoverable grave. Each death reduces current skill levels by **5%** instead of resetting them. Corpse Run and No skill drain are disabled, so repeated deaths still reduce skills. |
 | **Cartography Table map** | **M** opens your last saved table map. Exploration continues recording for your next table update. The minimap, player marker, and ship marker are hidden; the map does not follow your character. |
 
 Grave protection requires a world using the regular **Hardcore** preset. The options keep its vanilla Hardcore settings. Grave protection does not grant map access by itself. When the table-map option is off, the world's normal map rules apply; Hardcore has no map.
@@ -62,7 +62,7 @@ Use this mod's sign-pin controls for table maps. AutoPinSigns is not required; i
 
 Back up your world and stop the game/server before removing or updating mods. To uninstall, remove `BepInEx/plugins/CartographyMap/` from the server and every client.
 
-When Den's Hardcore is absent, the world runs its regular vanilla rules. **On Hardcore, normal item deletion on death returns, grave protection is inactive, and the map is disabled.** Existing vanilla signs, tables, and graves remain usable. Reinstall the compatible mod on server and clients to use its saved options again.
+When Den's Hardcore is absent, the world runs its regular vanilla rules. **On Hardcore, normal item deletion and the full skill reset on death return, grave protection is inactive, and the map is disabled.** Existing vanilla signs, tables, and graves remain usable. Reinstall the compatible mod on server and clients to use its saved options again.
 
 ## Q&A
 
@@ -90,12 +90,12 @@ No. Your exploration is recorded for your next visit to a table. Use **Record di
 
 Sign pins, icon changes, and crossed-off states reach a table when you use **Record discoveries**. Read the updated table to refresh your saved view. Changes do not appear immediately, and reading alone does not publish them.
 
-**Does grave protection remove Hardcore's other penalties?**
+**What happens to skills when I die?**
 
-No. It preserves carried items in a grave, but keeps Hardcore skill penalties. It also removes Corpse Run and No skill drain, so another death can immediately cause more skill loss.
+With Hardcore grave protection enabled, each current skill level drops by **5%** instead of resetting: level 50 becomes 47.5. Carried items remain in a recoverable grave. Corpse Run and No skill drain are disabled, so another death applies the reduction again. Other Hardcore settings stay the same. With grave protection disabled, ordinary Hardcore death penalties apply, including the full skill reset.
 
 **What happens if the mod is missing after an update?**
 
-The world uses its normal vanilla settings. On Hardcore, item deletion on death returns and the map is disabled. Back up your world and keep the mod installed on the server and every client when you want its options active.
+The world uses its normal vanilla settings. On Hardcore, item deletion and the full skill reset on death return, and the map is disabled. Back up your world and keep the mod installed on the server and every client when you want its options active.
 
 [Downloads](https://github.com/HamzaLayas/Dens_Hardcore/releases) · [Report a problem](https://github.com/HamzaLayas/Dens_Hardcore/issues)
