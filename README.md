@@ -101,7 +101,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.2.1.zip` to install the mod. The matching `.sha256` file lets you check the download. On the public download repository, GitHub's automatic **Source code** archives contain only the player guide and its accompanying documentation and icon; they do not contain the mod or its implementation.
+Download `Dens_Hardcore-1.2.1.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Does everyone need to install the mod?**
 
