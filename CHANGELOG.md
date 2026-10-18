@@ -1,7 +1,7 @@
 # Changelog
 
-## 1.1.0
+## 1.1.1
 
-- With Hardcore grave protection enabled, dying now reduces each current skill level by 5% instead of resetting skills. Level 50 becomes 47.5.
-- Repeated deaths still reduce skills. Items remain in a recoverable grave, and Corpse Run and No skill drain remain disabled.
-- Update the server and every player's mod together; older versions cannot connect.
+- Fix the mod's checkboxes failing to appear when opening World modifiers.
+- Keep the added checkboxes independent from the vanilla modifiers and preset selection.
+- Update the server and every player's mod together.

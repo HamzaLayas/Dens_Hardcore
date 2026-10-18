@@ -10,7 +10,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 
 1. Close Valheim and stop the server.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
-3. Extract `Dens_Hardcore-1.1.0.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder.
+3. Extract `Dens_Hardcore-1.1.1.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder.
 4. Replace any older Cartography Map installation. Keep only one copy of each mod DLL.
 5. Start the world again after changing its options or updating the mod.
 
