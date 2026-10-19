@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.2.1
+## 1.2.2
 
-- Stop repeated world-modifier description popups when loading or playing a world.
-- Fix Cartography Table map and Hardcore descriptions not updating in hidden or reopened world-modifier screens.
-- Prevent the mod's world settings from restarting during logout or world changes.
+- Restore the native spawn and world-location icons on the saved map.
+- Keep recorded boss pins visible after Cartography Table reads and writes.
+- Keep personal boss pins and other unsaved pins private until recorded.
+- Allow normal table pin maintenance while the saved map is open.
 - Update the server and every player's mod together.
