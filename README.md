@@ -2,6 +2,8 @@
 
 A Valheim mod by **SterbenDen**.
 
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.1/Dens_Hardcore-1.2.1.zip)
+
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
 Install **BepInEx 5** and the same version of Den's Hardcore on the server and every player's PC. Single-player is supported too. A modded server rejects players who are missing the required compatible mod.
@@ -96,6 +98,10 @@ Back up your world and stop the game/server before removing mods. To uninstall, 
 Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardcore death penalty restores vanilla item deletion and the full skill reset. A checked Cartography Table map is stored as No map, so the map becomes unavailable.** An unchecked map option keeps the normal vanilla map. Existing vanilla signs, tables, and graves remain usable.
 
 ## Q&A
+
+**Which GitHub download should I use?**
+
+Download `Dens_Hardcore-1.2.1.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Does everyone need to install the mod?**
 
