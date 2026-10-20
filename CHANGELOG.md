@@ -1,7 +1,8 @@
 # Changelog
 
-## 1.2.3
+## 1.2.4
 
-- Expanded the player guide for world modifiers, Cartography Tables, sign pins, configuration, updates, and troubleshooting.
-- Added native FAQ pages and corrected the existing FAQ's outdated preset, configuration, and support information.
-- Added complete release history to the Hexium changelog. Gameplay behavior is unchanged.
+- Stop repeated sign-pin updates while looking at signs.
+- Load sign-pin information when signs load and refresh it after actions.
+- Replace the sign-pin menu with direct shortcuts for pinning, choosing icons, and crossing pins off.
+- Add local shortcut settings while keeping normal sign-text editing and permissions.
