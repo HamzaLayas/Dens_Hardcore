@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.6/Dens_Hardcore-1.2.6.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.7/Dens_Hardcore-1.2.7.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -13,7 +13,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
 3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data. Do not keep older plugin copies alongside the current DLLs.
-4. Extract `Dens_Hardcore-1.2.6.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+4. Extract `Dens_Hardcore-1.2.7.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -62,7 +62,7 @@ Allow map pings = false
 [Client]
 Show saved-map banner = true
 Sign icon modifier = LeftControl
-Sign cross modifier = LeftAlt
+Sign cross modifier = LeftShift
 Sign controller icon modifier = JoyDPadLeft
 Sign controller cross modifier = JoyDPadRight
 ```
@@ -88,7 +88,7 @@ Select or start a world once to create its `[World <world ID>]` section with the
 
 `[Client]` is local to each player's PC. Set `Show saved-map banner = false` to hide the message above the saved map. This does not change the map, reveal exploration, or restore the minimap or player markers.
 
-The sign modifier settings choose the extra key or controller action held when changing an icon or crossing a pin. Choose different modifiers for those two actions. They combine with your normal alternate-use and Use bindings; they do not change the host's gameplay settings.
+On keyboard, hold `Sign icon modifier` with Use to change the icon; hold both sign modifiers with Use to cross or uncross the pin. Choose different modifiers. Alternate-use + Use toggles the pin. Existing configuration values are preserved on update; set `Sign cross modifier = LeftShift` to use the new default. Controller modifiers still combine with alternate-use + Use. These are local preferences and do not change the host's gameplay settings.
 
 When upgrading, an existing **Hardcore** death-penalty selection or checked **No map** setting activates its Den's Hardcore replacement by default. To keep vanilla behavior, disable the corresponding replacement in the world's configuration section. The old extra-checkbox settings no longer choose the modes or disable these replacements. Existing configuration, saved table maps, and sign pins are retained.
 
@@ -96,7 +96,7 @@ When upgrading, an existing **Hardcore** death-penalty selection or checked **No
 
 - Read a Cartography Table to save its map for viewing with **M**. Before reading a valid table, the view is unexplored.
 - Use **Record discoveries** to save your exploration and pending sign-pin changes to that table. Other players receive the update when they read it.
-- Normal sign interaction still edits its text. Press **Shift+E** to add or remove its pin, **Ctrl+Shift+E** to cycle its icon, or **Alt+Shift+E** to cross or uncross it. Press the interaction key once for each change. These are the default bindings; shortcuts follow your configured Use and alternate-use controls.
+- Normal sign interaction still edits its text. Press **Shift+E** to add or remove its pin, **Ctrl+E** to cycle its icon, or **Ctrl+Shift+E** to cross or uncross it. Press the interaction key once for each change. These are the default bindings; shortcuts follow your configured Use and alternate-use controls.
 - On a controller, alternate-use + Use toggles the pin. Hold **D-pad left** with that interaction to cycle the icon, or **D-pad right** to cross or uncross it. The extra controller actions can be changed in `[Client]` configuration.
 - Icons are Fire, Base, Hammer, Dot, and Portal. Add the pin before changing its icon or crossed-off state. The sign text is the pin name, and the game's normal sign permissions apply. There is no sign-pin menu.
 - Sign-pin information loads when signs load and refreshes after actions. Looking at a sign does not repeatedly update its pin.
@@ -116,7 +116,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.2.6.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.2.7.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Why does the Hexium download contain more files?**
 
