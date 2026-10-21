@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.5/Dens_Hardcore-1.2.5.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.6/Dens_Hardcore-1.2.6.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -12,8 +12,8 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
-3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data.
-4. Extract `Dens_Hardcore-1.2.5.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data. Do not keep older plugin copies alongside the current DLLs.
+4. Extract `Dens_Hardcore-1.2.6.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -23,7 +23,9 @@ BepInEx/plugins/Dens_Hardcore/Dens_Hardcore.dll
 BepInEx/plugins/Dens_Hardcore/Dens_Hardcore.Core.dll
 ```
 
-Your existing configuration values and saved-map data are retained. The mod copies settings from the previous configuration into `BepInEx/config/Dens_Hardcore.cfg` on first use and keeps the old file as a backup. If the new file already exists, its settings take precedence. Do not delete your configuration or the saved data in the `CartographyMap` cache folder when removing old DLLs.
+Your existing configuration values and saved-map data are retained. The mod copies settings from the previous configuration into `BepInEx/config/Dens_Hardcore.cfg` on first use and keeps the old file as a backup. If the new file already exists, its settings take precedence.
+
+Saved table maps and sign data now use `BepInEx/config/Dens_Hardcore/`. On the first upgrade, the mod copies the previous `BepInEx/config/CartographyMap/` folder into that location and preserves the original as a backup. If the new folder already exists, it is used unchanged; the old folder is not merged into it. Keep these data folders when removing old DLLs. Existing table maps and recorded sign pins remain available and update automatically as tables are used.
 
 The configuration is generated when the mod starts. Hexium downloads also include package metadata, the player guide, changelog, and FAQ for the mod manager and listing; those files are not additional plugins.
 
@@ -114,7 +116,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.2.5.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.2.6.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Why does the Hexium download contain more files?**
 
@@ -162,7 +164,7 @@ By default, the custom Hardcore death penalty reduces each current skill level b
 
 **Why do I see two copies or an older version after updating?**
 
-Remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` plugin copies before installing. Keep only `Dens_Hardcore.dll` and `Dens_Hardcore.Core.dll` in `BepInEx/plugins/Dens_Hardcore/`. Keep your configuration and saved map data.
+Remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` plugin copies before installing, and replace both existing Den's Hardcore DLLs together. Keep only one `Dens_Hardcore.dll` and one `Dens_Hardcore.Core.dll` in `BepInEx/plugins/Dens_Hardcore/`. Keep `Dens_Hardcore.cfg` and your saved map/sign data. The previous `CartographyMap` data folder is copied automatically into `BepInEx/config/Dens_Hardcore/` and retained as a backup; an existing new folder takes precedence. Existing tables retain their saved maps and recorded pins.
 
 **What happens if the mod is missing after an update?**
 

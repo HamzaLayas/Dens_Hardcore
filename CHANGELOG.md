@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.2.5
+## 1.2.6
 
-- Disable map pings by default when using the Cartography Table map; hosts can allow them per world.
-- Rename the configuration to `Dens_Hardcore.cfg` and import existing settings automatically while preserving the original file.
-- Add clearer configuration comments explaining options, defaults, scope, and applying changes.
-- Update the player guides and FAQ for current filenames, sign shortcuts, configuration, and map behavior.
+- Move saved maps and sign data into `Dens_Hardcore`, automatically preserving existing data and original backups.
+- Preserve recorded sign pins when updating older tables with newly explored terrain.
+- Keep previous table data safe when recording fails, retries, or encounters conflicting recovery data.
+- Prevent old and current plugin copies from loading together.
