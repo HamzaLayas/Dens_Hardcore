@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.4/Dens_Hardcore-1.2.4.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.5/Dens_Hardcore-1.2.5.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -13,7 +13,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
 3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data.
-4. Extract `Dens_Hardcore-1.2.4.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+4. Extract `Dens_Hardcore-1.2.5.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -23,7 +23,9 @@ BepInEx/plugins/Dens_Hardcore/Dens_Hardcore.dll
 BepInEx/plugins/Dens_Hardcore/Dens_Hardcore.Core.dll
 ```
 
-The existing BepInEx configuration filename and saved-map data are retained. Do not delete your configuration or the saved data in the `CartographyMap` cache folder when removing the old DLLs.
+Your existing configuration values and saved-map data are retained. The mod copies settings from the previous configuration into `BepInEx/config/Dens_Hardcore.cfg` on first use and keeps the old file as a backup. If the new file already exists, its settings take precedence. Do not delete your configuration or the saved data in the `CartographyMap` cache folder when removing old DLLs.
+
+The configuration is generated when the mod starts. Hexium downloads also include package metadata, the player guide, changelog, and FAQ for the mod manager and listing; those files are not additional plugins.
 
 ## World modifiers
 
@@ -32,7 +34,7 @@ The host chooses the following independent options in **World modifiers**. The m
 | Control | What it does |
 | --- | --- |
 | **Death penalty → Hardcore** | By default, carried items go into a recoverable grave, each death reduces current skill levels by **5%** instead of resetting them, and Corpse Run and No skill drain are disabled. Level 50 becomes 47.5. The host can adjust these rules in BepInEx. Other death-penalty choices keep their vanilla behavior. |
-| **Cartography Table map** | Replaces the game's **No map** checkbox. Check it so **M** opens your last saved table map. Exploration keeps recording for your next table update. The minimap, player marker, and ship marker are hidden; the map does not follow your character. Uncheck it to use the normal vanilla map. |
+| **Cartography Table map** | Replaces the game's **No map** checkbox. Check it so **M** opens your last saved table map. Exploration keeps recording for your next table update. The minimap, player marker, and ship marker are hidden; the map does not follow your character. Map pings are disabled by default. Uncheck it to use the normal vanilla map. |
 
 You can choose **Hardcore** under Death penalty without selecting the complete Hardcore preset. The two options work independently. Selecting the regular **Hardcore** preset keeps its other values and its Hardcore label; the mod does not change the preset's saved settings.
 
@@ -40,7 +42,7 @@ Dedicated servers use the same native world settings: `-modifier deathpenalty ha
 
 ## BepInEx configuration
 
-The mod uses `BepInEx/config/com.sterbenden.cartographymap.cfg`. These are the defaults:
+The mod uses **`BepInEx/config/Dens_Hardcore.cfg`**. Start the game once to generate it. Comments beside each setting explain its purpose, available options, default value, scope, and how to apply changes. These are the defaults:
 
 ```ini
 [Replacements]
@@ -53,6 +55,7 @@ Keep carried items in grave = true
 Remove Corpse Run = true
 Remove No skill drain = true
 Default sign pin icon = Fire
+Allow map pings = false
 
 [Client]
 Show saved-map banner = true
@@ -73,8 +76,9 @@ The host can tune the following gameplay settings:
 | **Remove Corpse Run** | `true` removes the recovery buff. `false` allows the normal Corpse Run buff. |
 | **Remove No skill drain** | `true` removes protection against skill loss from repeated deaths. `false` restores vanilla No skill drain and its cooldown protection; deaths outside that protection still use the configured skill-loss percentage. |
 | **Default sign pin icon** | Choose **Fire**, **Base**, **Hammer**, **Dot**, or **Portal** for newly pinned signs. Existing pins keep their chosen icons. |
+| **Allow map pings** | `false` disables map pings in Cartography Table map mode. Set `true` to allow them. The host controls this setting for every player in the world. |
 
-The death settings apply only while the custom Hardcore death penalty is active. The sign-icon default applies when using Cartography Table maps. Defaults keep the mod's usual behavior.
+The death settings apply only while the custom Hardcore death penalty is active. The sign-icon and ping settings apply when using Cartography Table maps. An ordinary vanilla map keeps its normal ping behavior.
 
 Set a replacement to `false` in the world's section to restore that control's vanilla behavior. With `Use table map for No map = false`, the checkbox returns to **No map** and disables the map when checked. With `Use custom Hardcore death penalty = false`, the Hardcore death penalty again uses vanilla item-loss rules and the full skill reset.
 
@@ -96,6 +100,7 @@ When upgrading, an existing **Hardcore** death-penalty selection or checked **No
 - Sign-pin information loads when signs load and refreshes after actions. Looking at a sign does not repeatedly update its pin.
 - Sign changes reach the saved map only after recording at a table. Reading alone does not publish pending changes. Each table keeps its own saved map.
 - Pan and zoom the saved map normally. Direct map-pin editing is unavailable; edit sign pins at their signs.
+- Map pings are disabled by default. To allow them, the host sets `Allow map pings = true` in this world's `[World <world ID>]` section of `Dens_Hardcore.cfg`, with the world/server stopped, then restarts it. This does not enable direct map-pin editing or reveal exploration.
 
 Use this mod's sign-pin controls for table maps. AutoPinSigns is not required; its live-map overlay is a separate feature and can produce overlapping pins if both mods manage the same sign.
 
@@ -109,7 +114,11 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.2.4.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.2.5.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+
+**Why does the Hexium download contain more files?**
+
+Hexium uses `manifest.json`, `icon.png`, and `README.md` for its package and listing. The download also carries the changelog and FAQ shown on the mod page. Only `Dens_Hardcore.dll` and `Dens_Hardcore.Core.dll` are plugins. Use the GitHub install ZIP if you want the two-DLL installer.
 
 **Does everyone need to install the mod?**
 
@@ -125,7 +134,11 @@ The mod uses the existing death-penalty control and replaces **No map** with **C
 
 **Where is the BepInEx configuration?**
 
-Open `BepInEx/config/com.sterbenden.cartographymap.cfg`. The host edits `[World <world ID>]` to tune an existing world's skill loss, grave items, death buffs, and default sign icon. `[Replacements]` and `[Gameplay]` supply initial defaults and do not overwrite saved world entries. Native world modifiers select the modes. Stop the world/server before editing and restart afterward. Players can independently hide the saved-map banner through `[Client]`.
+Open `BepInEx/config/Dens_Hardcore.cfg`. The host edits `[World <world ID>]` to tune an existing world's skill loss, grave items, death buffs, default sign icon, and map pings. `[Replacements]` and `[Gameplay]` supply initial defaults and do not overwrite saved world entries. Native world modifiers select the modes. Stop the world/server before editing and restart afterward. Players can independently hide the saved-map banner or change sign shortcuts through `[Client]`.
+
+**Why can I not ping the map?**
+
+Map pings are disabled by default while using the Cartography Table map. The host can set `Allow map pings = true` in the world's configuration section and restart the world/server to allow them for everyone. Changing a joining player's local configuration does not override this rule. Ordinary vanilla-map worlds keep their normal pings.
 
 **Why is my map blank, and where is the minimap?**
 
@@ -138,6 +151,10 @@ No. Your exploration is recorded for your next visit to a table. Use **Record di
 **Why hasn't my sign pin changed on the map?**
 
 Sign pins, icon changes, and crossed-off states reach a table when you use **Record discoveries**. Read the updated table to refresh your saved view. Changes do not appear immediately, and reading alone does not publish them.
+
+**Which spawn and boss icons can I see?**
+
+Your bed spawn marker, globally published world-location icons, and events remain live overlays. Personal Boss pins appear after you record them at a table and read its updated map. Unrecorded personal bosses remain private; these overlays do not reveal new terrain or other unsaved personal pins.
 
 **What happens to skills when I die?**
 
