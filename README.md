@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.3.2/Dens_Hardcore-1.3.2.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.3.3/Dens_Hardcore-1.3.3.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -13,7 +13,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
 3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data. Do not keep older plugin copies alongside the current DLLs.
-4. Extract `Dens_Hardcore-1.3.2.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+4. Extract `Dens_Hardcore-1.3.3.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -60,7 +60,7 @@ Default sign pin icon = Fire
 Allow map pings = false
 Respawn at world spawn = true
 Show water as explored = true
-Open sea coast margin = 125
+Open sea coast margin = 45
 
 [Client]
 Show saved-map banner = true
@@ -84,7 +84,7 @@ The host can tune the following gameplay settings:
 | **Allow map pings** | `false` disables map pings in Cartography Table map mode. Set `true` to allow them. The host controls this setting for every player in the world. |
 | **Respawn at world spawn** | `true` makes players respawn at the world spawn after dying, ignoring beds. Joining the world is unchanged. Quitting while dead also returns you to the world spawn. `false` restores bed respawns. Your bed is not changed. |
 | **Show water as explored** | `true` shows open sea as explored on the saved table map, including before your first table read. Fog stays over land, coastal waters, swamps, rivers, and lakes, so shorelines are not revealed. Recorded exploration is not changed. `false` keeps water fogged until explored. |
-| **Open sea coast margin** | How far from land, in metres, water stays fogged when **Show water as explored** is on. Any value from **0 to 1000**; the default **125** hides shallows and swamp water. Larger values hide more coastline and more sea near land; **0** reveals connected water right up to the shore. |
+| **Open sea coast margin** | How far from land, in metres, water stays fogged when **Show water as explored** is on. Any value from **0 to 1000**; the default **45** hides swamp pools and nearly all beach shallows. Larger values hide more coastline and more sea near land. Values round up to whole 12 m map pixels, so 25 and 36 look the same, and **0 to 12** reveal connected water right up to the shore. |
 
 The death settings apply only while the custom Hardcore death penalty is active. The sign-icon and ping settings apply when using Cartography Table maps. An ordinary vanilla map keeps its normal ping behavior.
 
@@ -122,7 +122,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.3.2.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.3.3.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Why does the Hexium download contain more files?**
 
