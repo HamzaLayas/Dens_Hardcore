@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.2.7/Dens_Hardcore-1.2.7.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.3.0/Dens_Hardcore-1.3.0.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -13,7 +13,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
 3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data. Do not keep older plugin copies alongside the current DLLs.
-4. Extract `Dens_Hardcore-1.2.7.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+4. Extract `Dens_Hardcore-1.3.0.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -35,8 +35,8 @@ The host chooses the following independent options in **World modifiers**. The m
 
 | Control | What it does |
 | --- | --- |
-| **Death penalty → Hardcore** | By default, carried items go into a recoverable grave, each death reduces current skill levels by **5%** instead of resetting them, and Corpse Run and No skill drain are disabled. Level 50 becomes 47.5. The host can adjust these rules in BepInEx. Other death-penalty choices keep their vanilla behavior. |
-| **Cartography Table map** | Replaces the game's **No map** checkbox. Check it so **M** opens your last saved table map. Exploration keeps recording for your next table update. The minimap, player marker, and ship marker are hidden; the map does not follow your character. Map pings are disabled by default. Uncheck it to use the normal vanilla map. |
+| **Death penalty → Hardcore** | By default, carried items go into a recoverable grave, each death reduces current skill levels by **5%** instead of resetting them, Corpse Run and No skill drain are disabled, and you respawn at the world spawn after dying instead of at your bed. Level 50 becomes 47.5. The host can adjust these rules in BepInEx. Other death-penalty choices keep their vanilla behavior. |
+| **Cartography Table map** | Replaces the game's **No map** checkbox. Check it so **M** opens your last saved table map. Exploration keeps recording for your next table update. The minimap, player marker, and ship marker are hidden; the map does not follow your character. All water appears explored, so fog covers only unexplored land. Map pings are disabled by default. Uncheck it to use the normal vanilla map. |
 
 You can choose **Hardcore** under Death penalty without selecting the complete Hardcore preset. The two options work independently. Selecting the regular **Hardcore** preset keeps its other values and its Hardcore label; the mod does not change the preset's saved settings.
 
@@ -58,6 +58,8 @@ Remove Corpse Run = true
 Remove No skill drain = true
 Default sign pin icon = Fire
 Allow map pings = false
+Respawn at world spawn = true
+Show water as explored = true
 
 [Client]
 Show saved-map banner = true
@@ -79,6 +81,8 @@ The host can tune the following gameplay settings:
 | **Remove No skill drain** | `true` removes protection against skill loss from repeated deaths. `false` restores vanilla No skill drain and its cooldown protection; deaths outside that protection still use the configured skill-loss percentage. |
 | **Default sign pin icon** | Choose **Fire**, **Base**, **Hammer**, **Dot**, or **Portal** for newly pinned signs. Existing pins keep their chosen icons. |
 | **Allow map pings** | `false` disables map pings in Cartography Table map mode. Set `true` to allow them. The host controls this setting for every player in the world. |
+| **Respawn at world spawn** | `true` makes players respawn at the world spawn after dying, ignoring beds. Joining the world is unchanged. Quitting while dead also returns you to the world spawn. `false` restores bed respawns. Your bed is not changed. |
+| **Show water as explored** | `true` shows all shallow and deep water as explored on the saved table map, including before your first table read, so fog covers only unexplored land. Recorded exploration is not changed. `false` keeps water fogged until explored. |
 
 The death settings apply only while the custom Hardcore death penalty is active. The sign-icon and ping settings apply when using Cartography Table maps. An ordinary vanilla map keeps its normal ping behavior.
 
@@ -94,7 +98,7 @@ When upgrading, an existing **Hardcore** death-penalty selection or checked **No
 
 ## Cartography Tables and sign pins
 
-- Read a Cartography Table to save its map for viewing with **M**. Before reading a valid table, the view is unexplored.
+- Read a Cartography Table to save its map for viewing with **M**. Before reading a valid table, land is unexplored; water appears explored by default.
 - Use **Record discoveries** to save your exploration and pending sign-pin changes to that table. Other players receive the update when they read it.
 - Normal sign interaction still edits its text. Press **Shift+E** to add or remove its pin, **Ctrl+E** to cycle its icon, or **Ctrl+Shift+E** to cross or uncross it. Press the interaction key once for each change. These are the default bindings; shortcuts follow your configured Use and alternate-use controls.
 - On a controller, alternate-use + Use toggles the pin. Hold **D-pad left** with that interaction to cycle the icon, or **D-pad right** to cross or uncross it. The extra controller actions can be changed in `[Client]` configuration.
@@ -116,7 +120,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.2.7.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.3.0.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Why does the Hexium download contain more files?**
 
@@ -144,7 +148,7 @@ Map pings are disabled by default while using the Cartography Table map. The hos
 
 **Why is my map blank, and where is the minimap?**
 
-With **Cartography Table map** checked, read a table to get a saved map. The minimap and player/ship markers are hidden. Uncheck the option for the normal vanilla map. If the table-map replacement is disabled in BepInEx, the checkbox instead uses vanilla **No map** behavior.
+With **Cartography Table map** checked, read a table to get a saved map. Until then only water is shown, unless the host has turned off **Show water as explored**. The minimap and player/ship markers are hidden. Uncheck the option for the normal vanilla map. If the table-map replacement is disabled in BepInEx, the checkbox instead uses vanilla **No map** behavior.
 
 **Does the saved map reveal land as I explore?**
 
@@ -156,7 +160,7 @@ Sign pins, icon changes, and crossed-off states reach a table when you use **Rec
 
 **Which spawn and boss icons can I see?**
 
-Your bed spawn marker, globally published world-location icons, and events remain live overlays. Personal Boss pins appear after you record them at a table and read its updated map. Unrecorded personal bosses remain private; these overlays do not reveal new terrain or other unsaved personal pins.
+Your bed spawn marker (hidden while death respawns use the world spawn), globally published world-location icons, and events remain live overlays. Personal Boss pins appear after you record them at a table and read its updated map. Unrecorded personal bosses remain private; these overlays do not reveal new terrain or other unsaved personal pins.
 
 **What happens to skills when I die?**
 
