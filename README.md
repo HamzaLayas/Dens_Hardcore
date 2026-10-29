@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.3.3/Dens_Hardcore-1.3.3.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.4.0/Dens_Hardcore-1.4.0.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -13,7 +13,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
 3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data. Do not keep older plugin copies alongside the current DLLs.
-4. Extract `Dens_Hardcore-1.3.3.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+4. Extract `Dens_Hardcore-1.4.0.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -37,10 +37,11 @@ The host chooses the following independent options in **World modifiers**. The m
 | --- | --- |
 | **Death penalty → Hardcore** | By default, carried items go into a recoverable grave, each death reduces current skill levels by **5%** instead of resetting them, Corpse Run and No skill drain are disabled, and you respawn at the world spawn after dying instead of at your bed. Level 50 becomes 47.5. The host can adjust these rules in BepInEx. Other death-penalty choices keep their vanilla behavior. |
 | **Cartography Table map** | Replaces the game's **No map** checkbox. Check it so **M** opens your last saved table map. Exploration keeps recording for your next table update. The minimap, player marker, and ship marker are hidden; the map does not follow your character. Open sea appears explored; land, coasts, swamps, rivers, and lakes stay fogged. Map pings are disabled by default. Uncheck it to use the normal vanilla map. |
+| **No boss portals** | Set **Portals → Hard** to turn on the game's No boss portals rule. Once a boss notices a player, it blocks every portal until it dies. With Den's Hardcore, a boss you summon at an altar disappears once no player has had its area loaded for **60 seconds**, for example after everyone dies and respawns at the world spawn, so portals work again. Fighting or kiting the boss nearby never removes it. The offering is not returned. Bosses that a location places itself, such as the Seeker Queen guarding her citadel, and bosses summoned before 1.4.0 are never removed. |
 
 You can choose **Hardcore** under Death penalty without selecting the complete Hardcore preset. The two options work independently. Selecting the regular **Hardcore** preset keeps its other values and its Hardcore label; the mod does not change the preset's saved settings.
 
-Dedicated servers use the same native world settings: `-modifier deathpenalty hardcore` selects the custom Hardcore death behavior, and `-setkey nomap` selects the Cartography Table map. Restart the server after changing its world settings.
+Dedicated servers use the same native world settings: `-modifier deathpenalty hardcore` selects the custom Hardcore death behavior, `-setkey nomap` selects the Cartography Table map, and `-modifier portals hard` turns on No boss portals. Restart the server after changing its world settings.
 
 ## BepInEx configuration
 
@@ -61,6 +62,8 @@ Allow map pings = false
 Respawn at world spawn = true
 Show water as explored = true
 Open sea coast margin = 45
+Despawn abandoned bosses = true
+Abandoned boss grace seconds = 60
 
 [Client]
 Show saved-map banner = true
@@ -85,8 +88,10 @@ The host can tune the following gameplay settings:
 | **Respawn at world spawn** | `true` makes players respawn at the world spawn after dying, ignoring beds. Joining the world is unchanged. Quitting while dead also returns you to the world spawn. `false` restores bed respawns. Your bed is not changed. |
 | **Show water as explored** | `true` shows open sea as explored on the saved table map, including before your first table read. Fog stays over land, coastal waters, swamps, rivers, and lakes, so shorelines are not revealed. Recorded exploration is not changed. `false` keeps water fogged until explored. |
 | **Open sea coast margin** | How far from land, in metres, water stays fogged when **Show water as explored** is on. Any value from **0 to 1000**; the default **45** hides swamp pools and nearly all beach shallows. Larger values hide more coastline and more sea near land. Values round up to whole 12 m map pixels, so 25 and 36 look the same, and **0 to 12** reveal connected water right up to the shore. |
+| **Despawn abandoned bosses** | `true` removes an altar-summoned boss once no player has had its area loaded for the grace time, and tells every player. `false` keeps bosses until they are killed, as normal. The offering is not returned. |
+| **Abandoned boss grace seconds** | How long, from **0 to 600** seconds, a summoned boss's area must stay unloaded before the boss disappears. The default **60** covers a reconnect or a player briefly leaving the area. **0** removes the boss at the next check; larger values keep portals blocked longer. |
 
-The death settings apply only while the custom Hardcore death penalty is active. The sign-icon and ping settings apply when using Cartography Table maps. An ordinary vanilla map keeps its normal ping behavior.
+The death settings apply only while the custom Hardcore death penalty is active. The boss settings apply only while the world's No boss portals modifier is on. The sign-icon and ping settings apply when using Cartography Table maps. An ordinary vanilla map keeps its normal ping behavior.
 
 Set a replacement to `false` in the world's section to restore that control's vanilla behavior. With `Use table map for No map = false`, the checkbox returns to **No map** and disables the map when checked. With `Use custom Hardcore death penalty = false`, the Hardcore death penalty again uses vanilla item-loss rules and the full skill reset.
 
@@ -122,7 +127,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.3.3.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.4.0.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Why does the Hexium download contain more files?**
 
@@ -160,6 +165,10 @@ No. Your exploration is recorded for your next visit to a table. Use **Record di
 
 Sign pins, icon changes, and crossed-off states reach a table when you use **Record discoveries**. Read the updated table to refresh your saved view. Changes do not appear immediately, and reading alone does not publish them.
 
+**Why did a boss disappear?**
+
+With **No boss portals** on, a boss you summoned at an altar disappears once no player has had its area loaded for 60 seconds, so it cannot keep every portal blocked after everyone leaves or dies. Every player sees a message. The offering is not returned. Bosses that a location places itself, such as the Seeker Queen guarding her citadel, are never removed. The host can change or disable this with `Abandoned boss grace seconds` and `Despawn abandoned bosses`.
+
 **Which spawn and boss icons can I see?**
 
 Your bed spawn marker (hidden while death respawns use the world spawn), globally published world-location icons, and events remain live overlays. Personal Boss pins appear after you record them at a table and read its updated map. Unrecorded personal bosses remain private; these overlays do not reveal new terrain or other unsaved personal pins.
@@ -181,6 +190,8 @@ The saved vanilla world settings resume. Hardcore death penalty restores item de
 Den's Hardcore is Copyright (c) 2026 SterbenDen and is licensed under the [Proprietary Software License](LICENSE).
 
 The Corpse Run icon is Valheim game artwork owned by Iron Gate AB. It is not covered by this repository's proprietary license. Den's Hardcore is a community mod and is not affiliated with Iron Gate AB.
+
+Abandoned-boss despawning is adapted from [BossDespawn](https://github.com/JFHeim/BossDespawn) by Vyacheslav (Frogger), used under the MIT License.
 
 Source: [Valheim Wiki Corpse Run icon](https://static.wikia.nocookie.net/valheim/images/b/b2/CorpseRun.png?format=original). The original transparent artwork is enlarged to meet the package's 256 × 256 icon requirement.
 
