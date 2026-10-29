@@ -2,7 +2,7 @@
 
 A Valheim mod by **SterbenDen**.
 
-[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.4.0/Dens_Hardcore-1.4.0.zip)
+[Download the install ZIP](https://github.com/HamzaLayas/Dens_Hardcore/releases/download/v1.4.1/Dens_Hardcore-1.4.1.zip)
 
 Keep the Hardcore challenge with recoverable graves, reduced skill loss, and a map shared through Cartography Tables. Choose each feature through Valheim's existing world modifiers.
 
@@ -13,7 +13,7 @@ Install **BepInEx 5** and the same version of Den's Hardcore on the server and e
 1. Close Valheim and stop the server. Back up your world before updating mods.
 2. Install [BepInExPack Valheim 5.4.2351](https://valheim.hexium.gg/mods/denikson/BepInExPack_Valheim).
 3. When upgrading, remove the old `CartographyMap.dll` and `CartographyMap.Core.dll` copies from `BepInEx/plugins/CartographyMap/` and any other plugin folders. Keep your configuration, saved table maps, and other mod data. Do not keep older plugin copies alongside the current DLLs.
-4. Extract `Dens_Hardcore-1.4.0.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
+4. Extract `Dens_Hardcore-1.4.1.zip` into the Valheim game folder and, for multiplayer, the dedicated-server folder. Replace the existing Den's Hardcore DLLs; keep only one copy of each.
 5. Check the world's modifiers, then restart the world/server after changing options or updating.
 
 The install contains only these two mod files:
@@ -127,7 +127,7 @@ Without Den's Hardcore, the world's saved vanilla settings take effect. **Hardco
 
 **Which GitHub download should I use?**
 
-Download `Dens_Hardcore-1.4.0.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
+Download `Dens_Hardcore-1.4.1.zip` to install the mod. It contains only the two required DLLs in their install folder. GitHub's automatic **Source code** archives contain the player guide and accompanying documentation and icon; use the install ZIP to play.
 
 **Why does the Hexium download contain more files?**
 
